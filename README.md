@@ -1,7 +1,7 @@
 # SolaceCreditUnion-eBanking
 #Solo Java project for a E-Banking program to display Delegation for Modul 226a.
 
-__Functions that must be fulfilled:___
+__Functions that must be fulfilled:__
 
 - Authentication (_User & Password_)
 - Add users with email and person details (_country, address_)
