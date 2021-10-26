@@ -1,4 +1,4 @@
-package com.company.solace.data.service;
+package com.company.solace.data.repository;
 
 import com.company.solace.data.entity.SamplePerson;
 

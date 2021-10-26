@@ -11,7 +11,7 @@ import com.vaadin.flow.router.Route;
 public class LoginView extends VerticalLayout {
 
     public LoginView(){
-        Button button = new Button("Hey there!");
+        Button button = new Button("Hey there Chad!");
         VerticalLayout layout = new VerticalLayout(button);
 
         layout.setDefaultHorizontalComponentAlignment(Alignment.CENTER);

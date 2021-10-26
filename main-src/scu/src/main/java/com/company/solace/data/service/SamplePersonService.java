@@ -2,6 +2,7 @@ package com.company.solace.data.service;
 
 import com.company.solace.data.entity.SamplePerson;
 
+import com.company.solace.data.repository.SamplePersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.vaadin.artur.helpers.CrudService;
