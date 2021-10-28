@@ -1,13 +1,12 @@
 package com.company.solace.data.entity;
 
-import java.util.LinkedList;
-import java.util.List;
+import com.company.solace.data.AbstractEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
-
-import com.company.solace.data.AbstractEntity;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 public class Company extends AbstractEntity {

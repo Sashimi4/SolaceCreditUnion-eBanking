@@ -1,7 +1,9 @@
 package com.company.solace.views.landingpage;
 
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.html.*;
+import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
@@ -19,14 +21,9 @@ public class LandingPageView extends VerticalLayout {
     private Button signupButton = new Button("Sign up");
 
     public LandingPageView() {
-        Image img = new Image("images/empty-plant.png", "placeholder plant");
-        img.setWidth("200px");
-        add(img);
 
-        add(new H1("Solace Credit Union"));
-        add(new Paragraph("Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"));
 
-        add(configureButtonSection());
+        add(configureMainSection());
 
         setSizeFull();
         setJustifyContentMode(JustifyContentMode.CENTER);
@@ -34,9 +31,23 @@ public class LandingPageView extends VerticalLayout {
         getStyle().set("text-align", "center");
     }
 
-    public HorizontalLayout configureButtonSection(){
-        HorizontalLayout section = new HorizontalLayout(loginButton,signupButton);
-        //section.addClassName();
+    /**
+     *
+     * @return      section     A finished HorizontalLayout object.
+     */
+    public HorizontalLayout configureMainSection(){
+        HorizontalLayout section = new HorizontalLayout();
+        Image img = new Image("images/empty-plant.png", "placeholder plant");
+        img.setWidth("200px");
+        section.add(img);
+        section.add(new H1("Solace Credit Union"));
+        section.add(new Paragraph("Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"));
+
+        loginButton.addClickListener((event) -> loginButton.getUI().ifPresent
+                (ui -> ui.navigate("login")));
+        signupButton.addClickListener((event) -> signupButton.getUI().ifPresent
+                (ui -> ui.navigate("map")));
+        section.add(loginButton, signupButton);
         return section;
     }
 
