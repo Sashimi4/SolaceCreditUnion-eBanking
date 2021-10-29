@@ -1,7 +1,5 @@
 package com.company.solace.views.personform;
 
-import com.company.solace.data.entity.SamplePerson;
-import com.company.solace.data.service.SamplePersonService;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;

@@ -70,27 +70,6 @@ public class CreditCardFormView extends Div {
         return buttonLayout;
     }
 
-    private class ExpirationDateField extends CustomField<String> {
-        public ExpirationDateField(String label, Select<Integer> month, Select<Integer> year) {
-            setLabel(label);
-            HorizontalLayout layout = new HorizontalLayout(month, year);
-            layout.setFlexGrow(1.0, month, year);
-            month.setWidth("100px");
-            year.setWidth("100px");
-            add(layout);
-        }
 
-        @Override
-        protected String generateModelValue() {
-            // Unused as month and year fields part are of the outer class
-            return "";
-        }
-
-        @Override
-        protected void setPresentationValue(String newPresentationValue) {
-            // Unused as month and year fields part are of the outer class
-        }
-
-    }
 
 }
