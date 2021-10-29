@@ -21,10 +21,7 @@ public class LandingPageView extends VerticalLayout {
     private Button signupButton = new Button("Sign up");
 
     public LandingPageView() {
-
-
         add(configureMainSection());
-
         setSizeFull();
         setJustifyContentMode(JustifyContentMode.CENTER);
         setDefaultHorizontalComponentAlignment(Alignment.CENTER);
