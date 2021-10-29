@@ -1,9 +1,8 @@
 package com.company.solace.data.entity;
 
-import javax.persistence.Entity;
-
 import com.company.solace.data.AbstractEntity;
 
+import javax.persistence.Entity;
 import java.time.LocalDate;
 
 @Entity
@@ -15,7 +14,7 @@ public class SamplePerson extends AbstractEntity {
     private String phone;
     private LocalDate dateOfBirth;
     private String occupation;
-    private boolean important;
+    private boolean mailSubscription;
 
     public String getFirstName() {
         return firstName;
@@ -54,10 +53,10 @@ public class SamplePerson extends AbstractEntity {
         this.occupation = occupation;
     }
     public boolean isImportant() {
-        return important;
+        return mailSubscription;
     }
-    public void setImportant(boolean important) {
-        this.important = important;
+    public void setImportant(boolean mailSubscription) {
+        this.mailSubscription = mailSubscription;
     }
 
 }

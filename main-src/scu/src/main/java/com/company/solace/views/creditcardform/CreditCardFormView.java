@@ -31,11 +31,9 @@ public class CreditCardFormView extends Div {
 
     public CreditCardFormView() {
         addClassName("credit-card-form-view");
-
         add(createTitle());
         add(createFormLayout());
         add(createButtonLayout());
-
         cancel.addClickListener(e -> {
             Notification.show("Not implemented");
         });

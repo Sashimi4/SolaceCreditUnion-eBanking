@@ -1,14 +1,14 @@
 package com.company.solace.data.entity;
 
+import com.company.solace.data.AbstractEntity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.company.solace.data.AbstractEntity;
 
 @Entity
 public class Contact extends AbstractEntity {

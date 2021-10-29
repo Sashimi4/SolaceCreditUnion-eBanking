@@ -20,6 +20,9 @@ public class LandingPageView extends VerticalLayout {
     private Button loginButton = new Button("Login");
     private Button signupButton = new Button("Sign up");
 
+    /**
+     *
+     */
     public LandingPageView() {
         add(configureMainSection());
         setSizeFull();
