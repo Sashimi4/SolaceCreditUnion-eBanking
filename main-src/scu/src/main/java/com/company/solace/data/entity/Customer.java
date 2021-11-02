@@ -63,4 +63,29 @@ public class Customer extends AbstractEntity {
     public void setMailSubscriber(boolean mailSubscriber) {
         this.mailSubscriber = mailSubscriber;
     }
+    public String getCountry() {
+        return country;
+    }
+    public void setCountry(String country) {
+        this.country = country;
+    }
+    public String getAddress() {
+        return address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", country='" + country + '\'' +
+                ", address='" + address + '\'' +
+                ", mailSubscriber=" + mailSubscriber +
+                '}';
+    }
 }
