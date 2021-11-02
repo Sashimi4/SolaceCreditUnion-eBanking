@@ -10,7 +10,10 @@ public class CustomerService {
     public CustomerService(@Autowired CustomerRepository repository) {
         this.repository = repository;
     }
-    
+
+
+    // Logic here
+
     protected CustomerRepository getRepository() {
         return repository;
     }

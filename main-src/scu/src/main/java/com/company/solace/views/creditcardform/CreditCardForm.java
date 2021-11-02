@@ -14,7 +14,7 @@ public class CreditCardForm extends FormLayout {
     private TextField cardHolder = new TextField("Account");
     private Select<Integer> month = new Select<>();
     private Select<Integer> year = new Select<>();
-    private ExpirationDateField expiration = new CreditCardFormView.ExpirationDateField("Expiration date", month, year);
+    private ExpirationDateField expiration = new ExpirationDateField("Expiration date", month, year);
     private PasswordField csc = new PasswordField("CSC");
 
     private Button cancel = new Button("Cancel");
