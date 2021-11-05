@@ -18,6 +18,7 @@ public class Customer extends AbstractEntity {
     @NotEmpty
     private String lastName = "";
 
+    //might wanna make this field unique
     @NotEmpty
     @Email
     private String email = "";
@@ -30,6 +31,9 @@ public class Customer extends AbstractEntity {
 
     @NotEmpty
     private String address = "";
+
+    @NotEmpty
+    private String password = "";
 
     private boolean mailSubscriber;
 
@@ -75,6 +79,12 @@ public class Customer extends AbstractEntity {
     public void setAddress(String address) {
         this.address = address;
     }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @Override
     public String toString() {
@@ -85,6 +95,7 @@ public class Customer extends AbstractEntity {
                 ", phone='" + phone + '\'' +
                 ", country='" + country + '\'' +
                 ", address='" + address + '\'' +
+                ", password='" + password + '\'' +
                 ", mailSubscriber=" + mailSubscriber +
                 '}';
     }

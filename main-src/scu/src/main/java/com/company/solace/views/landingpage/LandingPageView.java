@@ -28,10 +28,9 @@ public class LandingPageView extends VerticalLayout {
      */
     public LandingPageView() {
         setSizeFull();
+        setAlignItems(Alignment.CENTER);
         setJustifyContentMode(JustifyContentMode.CENTER);
-        setDefaultHorizontalComponentAlignment(Alignment.CENTER);
         getStyle().set("text-align", "center");
-        //Add components
         add(configureMainSection());
     }
 
