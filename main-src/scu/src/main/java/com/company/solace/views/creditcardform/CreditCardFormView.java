@@ -1,5 +1,7 @@
 package com.company.solace.views.creditcardform;
 
+import com.company.solace.data.entity.CreditCard;
+import com.company.solace.views.main.MainLayout;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -12,11 +14,15 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.router.Route;
+import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouteAlias;
 
 @PageTitle("Credit Card Form")
-@Route(value = "credit-card-form")
+@Route(value = "Credit-Card-Form", layout = MainLayout.class)
+@RouteAlias(value = "credit-card-form", layout = MainLayout.class)
+
 public class CreditCardFormView extends Div {
 
     private TextField cardNumber = new TextField("Credit card number");
@@ -29,18 +35,27 @@ public class CreditCardFormView extends Div {
     private Button cancel = new Button("Cancel");
     private Button submit = new Button("Submit");
 
+    private Binder<CreditCard> binder = new Binder<>(CreditCard.class);
+
     public CreditCardFormView() {
         addClassName("credit-card-form-view");
         add(createTitle());
         add(createFormLayout());
         add(createButtonLayout());
-        cancel.addClickListener(e -> {
-            Notification.show("Not implemented");
-        });
+
+        binder.bindInstanceFields(this);
+        cancel.addClickListener(e -> clearForm());
         submit.addClickListener(e -> {
             Notification.show("Not implemented");
         });
 
+    }
+
+    /**
+     *
+     */
+    private void clearForm() {
+        binder.setBean(new CreditCard());
     }
 
     private class ExpirationDateField extends CustomField<String> {
