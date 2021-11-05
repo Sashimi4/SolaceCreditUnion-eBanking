@@ -2,6 +2,7 @@ package com.company.solace.data.entity;
 
 import com.company.solace.data.AbstractEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -21,6 +22,7 @@ public class Customer extends AbstractEntity {
     //might wanna make this field unique
     @NotEmpty
     @Email
+    @Column(unique = true)
     private String email = "";
 
     @NotEmpty
