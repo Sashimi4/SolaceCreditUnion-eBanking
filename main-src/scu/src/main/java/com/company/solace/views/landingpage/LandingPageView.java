@@ -16,7 +16,7 @@ import com.vaadin.flow.theme.Theme;
 @PWA(name = "Flow CRM Tutorial", shortName = "Flow CRM Tutorial", enableInstallPrompt = false)
 @Theme(themeFolder = "flowcrmtutorial")
 @PageTitle("Solace Credit Union")
-@Route(value = "")
+@Route(value = "landing page")
 @Uses(Icon.class)
 public class LandingPageView extends VerticalLayout {
 

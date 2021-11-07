@@ -2,6 +2,7 @@ package com.company.solace.views.customerform;
 
 import com.company.solace.data.entity.Customer;
 import com.company.solace.data.service.CustomerService;
+import com.company.solace.views.main.MainLayout;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -53,14 +54,13 @@ public class CustomerFormView extends Div {
 
         binder.bindInstanceFields(this);
         validateCustomer();
-        clearForm();
 
         cancel.addClickListener(e -> clearForm());
         save.addClickListener(e -> {
             save();
             Notification.show("User registered. Thank You for Joining Us!");
             clearForm();
-            save.getUI().ifPresent(ui -> ui.navigate("map"));
+            save.getUI().ifPresent(ui -> ui.navigate(MainLayout.class));
         });
     }
 
@@ -71,8 +71,8 @@ public class CustomerFormView extends Div {
         binder.forField(firstName).withValidator(name -> name.length() >= 3, "First name must contain at least three characters").bind(Customer::getFirstName, Customer::setFirstName);
         binder.forField(lastName).withValidator(name -> name.length() >= 3, "Last name must contain at least three characters").bind(Customer::getLastName, Customer::setLastName);
         binder.forField(address).withValidator(addressVar -> addressVar.length() >= 3,"Address must contain at least three characters and at most 255").bind(Customer::getAddress, Customer::setAddress);
-        binder.forField(confirmPassword).withValidator(givenPassword -> givenPassword.equals(binder.getBean().getPassword()),"Passwords do not match up").bind(Customer::getPassword, Customer::setPassword);
         binder.forField(password).withValidator(givenPassword -> givenPassword.length() >= 8, "Invalid Password").bind(Customer::getPassword, Customer::setPassword);
+        binder.forField(confirmPassword).withValidator(givenPassword -> givenPassword.equals(binder.getBean().getPassword()),"Passwords do not match up").bind(Customer::getPassword, Customer::setPassword);
         binder.forField(phone.number).withValidator(number -> number.length() <=11, "No such phone number").bind(Customer::getPhone, Customer::setPhone); //https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
     }
 

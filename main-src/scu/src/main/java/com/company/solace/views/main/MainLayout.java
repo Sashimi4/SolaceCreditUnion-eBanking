@@ -27,7 +27,7 @@ import java.util.Optional;
  *
  */
 @PageTitle("Workspace")
-@Route(value = "home")
+@Route(value = "")
 public class MainLayout extends AppLayout {
 
     private final SecurityService securityService;

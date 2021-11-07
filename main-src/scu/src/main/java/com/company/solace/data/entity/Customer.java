@@ -19,7 +19,6 @@ public class Customer extends AbstractEntity {
     @NotEmpty
     private String lastName = "";
 
-    //might wanna make this field unique
     @NotEmpty
     @Email
     @Column(unique = true)

@@ -2,6 +2,7 @@ package com.company.solace.data.entity;
 
 import com.company.solace.data.AbstractEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
@@ -13,6 +14,13 @@ public class CreditCard extends AbstractEntity {
     @NotNull
     @ManyToOne
     private Account account;
+
+    @NotNull
+    @Column(unique = true)
+    private String cardNumber;
+
+    @NotNull
+    private String csc;
 
     @NotNull
     private Date expirationDate;
@@ -29,5 +37,17 @@ public class CreditCard extends AbstractEntity {
     }
     public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
+    }
+    public String getCardNumber() {
+        return cardNumber;
+    }
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+    public String getCsc() {
+        return csc;
+    }
+    public void setCsc(String csc){
+        this.csc = csc;
     }
 }
