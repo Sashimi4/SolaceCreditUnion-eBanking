@@ -3,6 +3,7 @@ package com.company.solace.views.main;
 import com.company.solace.data.security.SecurityService;
 import com.company.solace.views.HelloWorldView;
 import com.company.solace.views.creditcardform.CreditCardFormView;
+import com.company.solace.views.home.HomeView;
 import com.company.solace.views.map.MapView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentUtil;
@@ -27,7 +28,7 @@ import java.util.Optional;
  * Main web app layout class containing interchangable content field, but still static components such as headers.
  */
 @PageTitle("Workspace")
-@Route(value = "")
+@Route(value = "home")
 public class MainLayout extends AppLayout {
 
     private final SecurityService securityService;
@@ -123,6 +124,7 @@ public class MainLayout extends AppLayout {
      */
     private Component[] createMenuItems(){
         return new Tab[]{
+                createTab("Home Dashboard", HomeView.class),
                 createTab("Credit Card Form", CreditCardFormView.class),
                 createTab("Location", MapView.class),
                 createTab("Hello World", HelloWorldView.class)
