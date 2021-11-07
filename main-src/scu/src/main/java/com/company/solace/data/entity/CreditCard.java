@@ -8,6 +8,10 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import java.sql.Date;
 
+/**
+ * Database Credit card relation which gets translated into a table.
+ * It contains all information for the DB entity like columns and references.
+ */
 @Entity
 public class CreditCard extends AbstractEntity {
 

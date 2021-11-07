@@ -4,6 +4,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+/**
+ * Parent class which implements hashcode(), equals() methods and ID attribute.
+ */
 @MappedSuperclass
 public abstract class AbstractEntity {
 

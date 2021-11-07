@@ -11,7 +11,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
-
+/**
+ *  Security config class for defining URL strings and who has granted access
+ *  Importantly for admin users, users with login information and robots for good SEO.
+ */
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {

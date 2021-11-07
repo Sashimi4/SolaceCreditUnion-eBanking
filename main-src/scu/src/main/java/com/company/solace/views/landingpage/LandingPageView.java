@@ -13,6 +13,9 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.theme.Theme;
 
+/**
+ * Class containing landing page view
+ */
 @PWA(name = "Flow CRM Tutorial", shortName = "Flow CRM Tutorial", enableInstallPrompt = false)
 @Theme(themeFolder = "flowcrmtutorial")
 @PageTitle("Solace Credit Union")
@@ -24,7 +27,7 @@ public class LandingPageView extends VerticalLayout {
     private Button signupButton = new Button("Sign up");
 
     /**
-     *
+     * Constructor for creating HTML/Typescript page.
      */
     public LandingPageView() {
         setSizeFull();
@@ -35,10 +38,11 @@ public class LandingPageView extends VerticalLayout {
     }
 
     /**
+     * Configures the horizontal layout of the page containing login and sign up button.
+     * Secondly sets up the button for routing to another page.
      *
      * @return      section     A finished HorizontalLayout object.
      */
-
     public HorizontalLayout configureMainSection(){
         HorizontalLayout section = new HorizontalLayout();
         Image img = new Image("images/empty-plant.png", "placeholder plant");

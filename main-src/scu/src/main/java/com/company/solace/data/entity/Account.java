@@ -6,7 +6,8 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 /**
- *
+ * Database Account relation which gets translated into a table.
+ * It contains all information for the DB entity like columns and references.
  */
 @Entity
 public class Account extends AbstractEntity {
@@ -19,7 +20,6 @@ public class Account extends AbstractEntity {
 
     @NotNull
     private Double balance = 0.0;
-
 
     public Customer getCustomer_fk() {
         return customer_fk;

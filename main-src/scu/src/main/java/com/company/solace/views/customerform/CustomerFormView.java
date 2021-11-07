@@ -23,6 +23,10 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * View class containing necessary elements for the HTML document.
+ * This class represents a customer form for saving customer information.
+ */
 @PageTitle("Sign up")
 @Route(value = "sign-up")
 @Uses(Icon.class)
@@ -43,9 +47,15 @@ public class CustomerFormView extends Div {
 
     private Binder<Customer> binder = new Binder<>(Customer.class);
 
+    /**
+     * autowired service layer which is a singleton. And retrievable from all layers.
+     */
     @Autowired
     private CustomerService customerService;
 
+    /**
+     * Constructor for creating customer form view.
+     */
     public CustomerFormView() {
         addClassName("person-form-view");
         add(createTitle());
@@ -65,7 +75,7 @@ public class CustomerFormView extends Div {
     }
 
     /**
-     *
+     * Adds validation to defined fields with error text.
      */
     private void validateCustomer(){
         binder.forField(firstName).withValidator(name -> name.length() >= 3, "First name must contain at least three characters").bind(Customer::getFirstName, Customer::setFirstName);
@@ -77,7 +87,7 @@ public class CustomerFormView extends Div {
     }
 
     /**
-     *
+     * Clears the form
      */
     private void save() {
         Customer customer = binder.getBean();
@@ -95,7 +105,7 @@ public class CustomerFormView extends Div {
     }
 
     /**
-     *
+     * Clears form
      */
     private void clearForm() {
         binder.setBean(new Customer());
@@ -117,7 +127,7 @@ public class CustomerFormView extends Div {
     }
 
     /**
-     *
+     * Fills up drop box fields with their content
      */
     private void setUpFields(){
         //mailSubscriber.setLabel("Mail Subscriber");
@@ -135,8 +145,9 @@ public class CustomerFormView extends Div {
     }
 
     /**
+     * Creates a horizontal layout with button layout.
      *
-     * @return
+     * @return    Typescript component with all buttons and intractable fields set.
      */
     private Component createButtonLayout() {
         HorizontalLayout buttonLayout = new HorizontalLayout();
@@ -148,7 +159,7 @@ public class CustomerFormView extends Div {
     }
 
     /**
-     *
+     * Private class for custom phone number field with REGEX
      */
     private static class PhoneNumberField extends CustomField<String> {
         private ComboBox<String> countryCode = new ComboBox<>();

@@ -22,10 +22,13 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * View class containing necessary elements for the HTML document.
+ * This class represents a credit card form for saving customer credit card information.
+ */
 @PageTitle("Credit Card Form")
 @Route(value = "Credit-Card-Form", layout = MainLayout.class)
 @RouteAlias(value = "credit-card-form", layout = MainLayout.class)
-
 public class CreditCardFormView extends Div {
 
     private TextField cardNumber = new TextField("Credit card number *");
@@ -41,9 +44,15 @@ public class CreditCardFormView extends Div {
 
     private Binder<CreditCard> binder = new Binder<>(CreditCard.class);
 
+    /**
+     * autowired service layer which is a singleton. And retrievable from all layers.
+     */
     @Autowired
     private CreditCardService creditCardService;
 
+    /**
+     * Constructor for creating credit card form view.
+     */
     public CreditCardFormView() {
         addClassName("credit-card-form-view");
         add(createTitle());
@@ -64,7 +73,7 @@ public class CreditCardFormView extends Div {
     }
 
     /**
-     *
+     * Clears the form
      */
     private void clearForm() {
         binder.setBean(new CreditCard());
@@ -81,7 +90,7 @@ public class CreditCardFormView extends Div {
     }
 
     /**
-     *
+     * The binder retrieves all information stored from the form and passes them over towards the service layer for further processing
      */
     private void save(){
         CreditCard creditCard = binder.getBean();
@@ -89,7 +98,7 @@ public class CreditCardFormView extends Div {
     }
 
     /**
-     *
+     * Adds validation to defined fields with error text.
      */
     private void validateCreditCard(){
         binder.forField(cardNumber).withValidator(cardnumber -> cardnumber.length() == 16, "Invalid credit card number").bind(CreditCard::getCardNumber, CreditCard::setCardNumber);
@@ -97,13 +106,19 @@ public class CreditCardFormView extends Div {
         //binder.forField(expiration).withValidator(date -> date.length() > 0, "No date specified").bind();
     }
 
+    /**
+     * Creates a component containing a header.
+     *
+     * @return      Custom component with only a header.
+     */
     private Component createTitle() {
         return new H3("Credit Card");
     }
 
     /**
+     * Creates a form layout containing fields for the user to fill with.
      *
-     * @return
+     * @return     Typescript component containing all necessary fields.
      */
     private Component createFormLayout() {
         FormLayout formLayout = new FormLayout();
@@ -112,8 +127,9 @@ public class CreditCardFormView extends Div {
     }
 
     /**
+     * Creates a horizontal layout with date picker and button layout.
      *
-     * @return
+     * @return    Typescript component with all buttons and intractable fields set.
      */
     private Component createButtonLayout() {
         HorizontalLayout buttonLayout = new HorizontalLayout();
@@ -135,7 +151,7 @@ public class CreditCardFormView extends Div {
     }
 
     /**
-     *
+     * Private custom component with built-in date pickers.
      */
     private class ExpirationDateField extends CustomField<String> {
         public ExpirationDateField(String label, Select<Integer> month, Select<Integer> year) {

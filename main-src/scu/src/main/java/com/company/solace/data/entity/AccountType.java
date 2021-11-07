@@ -5,6 +5,10 @@ import com.company.solace.data.AbstractEntity;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotEmpty;
 
+/**
+ * Database Account type relation which gets translated into a table.
+ * It contains all information for the DB entity like columns and references.
+ */
 @Entity
 public class AccountType extends AbstractEntity {
 

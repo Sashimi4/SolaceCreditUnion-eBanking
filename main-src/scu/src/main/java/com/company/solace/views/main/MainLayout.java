@@ -24,7 +24,7 @@ import com.vaadin.flow.router.RouterLink;
 import java.util.Optional;
 
 /**
- *
+ * Main web app layout class containing interchangable content field, but still static components such as headers.
  */
 @PageTitle("Workspace")
 @Route(value = "")
@@ -35,8 +35,9 @@ public class MainLayout extends AppLayout {
     private final Tabs menu;
 
     /**
+     * Constructor for creating main app layout.
      *
-     * @param securityService
+     * @param securityService       Service object for implementing security over internal resorces.
      */
     public MainLayout(SecurityService securityService){
         this.securityService = securityService;
@@ -47,8 +48,9 @@ public class MainLayout extends AppLayout {
     }
 
     /**
+     * Creates a custom header component.
      *
-     * @return
+     * @return      Header component
      */
     private Component createHeaderContent() {
         HorizontalLayout header = new HorizontalLayout();
@@ -73,9 +75,10 @@ public class MainLayout extends AppLayout {
     }
 
     /**
+     * Custom component creating drawer content which can be opened and closed.
      *
-     * @param menu
-     * @return
+     * @param menu      available tabs
+     * @return          custom component containing different tabs which can be chosen.
      */
     private Component createDrawerContent(Tabs menu){
         VerticalLayout layout = new VerticalLayout();
@@ -100,8 +103,9 @@ public class MainLayout extends AppLayout {
     }
 
     /**
+     * Creates menu tab with orientation and theme.
      *
-     * @return
+     * @return       all tabs added.
      */
     private Tabs createMenu() {
         final Tabs tabs = new Tabs();
@@ -113,8 +117,9 @@ public class MainLayout extends AppLayout {
     }
 
     /**
+     * Define navigation text and the specified view
      *
-     * @return
+     * @return          All components in the drawer
      */
     private Component[] createMenuItems(){
         return new Tab[]{
@@ -125,10 +130,11 @@ public class MainLayout extends AppLayout {
     }
 
     /**
+     *  Create linking tab fo drawer component and the new component to be navigated to.
      *
-     * @param text
-     * @param navigationTarget
-     * @return
+     * @param text                  component name
+     * @param navigationTarget      component target
+     * @return                      tab with navigation
      */
     private static Tab createTab(String text, Class<? extends Component> navigationTarget) {
         final Tab tab = new Tab();
@@ -138,7 +144,7 @@ public class MainLayout extends AppLayout {
     }
 
     /**
-     *
+     *  Sets title and content right after navigating.
      */
     @Override
     protected void afterNavigation() {
@@ -152,19 +158,16 @@ public class MainLayout extends AppLayout {
     }
 
     /**
+     *  Retrieve content field with the corresponding tab
      *
      * @param component
-     * @return
+     * @return               retrieved component tab
      */
     private Optional<Tab> getTabForComponent(Component component) {
         return menu.getChildren().filter(tab -> ComponentUtil.getData(tab, Class.class).equals(component.getClass()))
                 .findFirst().map(Tab.class::cast);
     }
 
-    /**
-     *
-     * @return
-     */
     private String getCurrentPageTitle() {
         return getContent().getClass().getAnnotation(PageTitle.class).value();
     }

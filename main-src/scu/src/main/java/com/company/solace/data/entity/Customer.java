@@ -8,7 +8,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 /**
- *
+ * Database Customer relation which gets translated into a table.
+ * It contains all information for the DB entity like columns and references.
  */
 @Entity
 public class Customer extends AbstractEntity {

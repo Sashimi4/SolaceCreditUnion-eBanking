@@ -8,6 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Component;
 
+/**
+ * Security service class which identifies users and retrieves authentication data.
+ */
 @Component
 public class SecurityService {
 
@@ -23,6 +26,9 @@ public class SecurityService {
         return null;
     }
 
+    /**
+     * logs out the user from accessing internal views.
+     */
     public void logout() {
         UI.getCurrent().getPage().setLocation(LOGOUT_SUCCESS_URL);
         SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
