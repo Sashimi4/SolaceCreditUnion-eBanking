@@ -21,6 +21,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouteAlias;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -28,7 +29,8 @@ import org.springframework.beans.factory.annotation.Autowired;
  * This class represents a customer form for saving customer information.
  */
 @PageTitle("Sign up")
-@Route(value = "sign-up")
+@Route(value = "Sign-Up", layout = MainLayout.class)
+@RouteAlias(value = "sign-up", layout = MainLayout.class)
 @Uses(Icon.class)
 public class CustomerFormView extends Div {
 
@@ -75,7 +77,7 @@ public class CustomerFormView extends Div {
     }
 
     /**
-     * Adds validation to defined fields with error text.
+     * Adds validation to defined fields with error text and binds it to a new Customer object.
      */
     private void validateCustomer(){
         binder.forField(firstName).withValidator(name -> name.length() >= 3, "First name must contain at least three characters").bind(Customer::getFirstName, Customer::setFirstName);
@@ -87,7 +89,7 @@ public class CustomerFormView extends Div {
     }
 
     /**
-     * Clears the form
+     * Saves the form
      */
     private void save() {
         Customer customer = binder.getBean();
@@ -116,8 +118,9 @@ public class CustomerFormView extends Div {
     }
 
     /**
+     * Returns the form layout object which contains all necessary fields.
      *
-     * @return
+     * @return   a form layout object containing given input fields.
      */
     private Component createFormLayout() {
         FormLayout formLayout = new FormLayout();

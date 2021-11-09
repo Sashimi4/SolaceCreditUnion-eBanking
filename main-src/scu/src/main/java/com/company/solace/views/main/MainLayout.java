@@ -1,8 +1,8 @@
 package com.company.solace.views.main;
 
 import com.company.solace.data.security.SecurityService;
-import com.company.solace.views.HelloWorldView;
 import com.company.solace.views.creditcardform.CreditCardFormView;
+import com.company.solace.views.customerform.CustomerFormView;
 import com.company.solace.views.home.HomeView;
 import com.company.solace.views.map.MapView;
 import com.vaadin.flow.component.Component;
@@ -127,7 +127,7 @@ public class MainLayout extends AppLayout {
                 createTab("Home Dashboard", HomeView.class),
                 createTab("Credit Card Form", CreditCardFormView.class),
                 createTab("Location", MapView.class),
-                createTab("Hello World", HelloWorldView.class)
+                createTab("Sign up", CustomerFormView.class)
         };
     }
 
