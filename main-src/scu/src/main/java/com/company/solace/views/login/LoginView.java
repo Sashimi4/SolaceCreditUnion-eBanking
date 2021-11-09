@@ -12,7 +12,9 @@ import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-
+/**
+ * Login view which blocks un-authenticated users from viewing internal resources.
+ */
 @PageTitle("Login Page")
 @Route(value = "login")
 public class LoginView extends VerticalLayout implements BeforeEnterObserver {
@@ -36,8 +38,8 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
     }
 
     /**
-     *
-     * @param beforeEnterEvent
+     * Retrieves URL parameters, because if the user isn't authenticated the URL get changed to 'login/error'
+     * @param beforeEnterEvent      Event which gets created before entering other views.
      */
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
@@ -47,8 +49,8 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
     }
 
     /**
-     *
-     * @return
+     * Creates a custom component containing a Title.
+     * @return    custom component with a Title.
      */
     public Component createTitle(){
         return new H2("Solace Credit Union");

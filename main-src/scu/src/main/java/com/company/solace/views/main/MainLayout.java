@@ -162,8 +162,8 @@ public class MainLayout extends AppLayout {
     /**
      *  Retrieve content field with the corresponding tab
      *
-     * @param component
-     * @return               retrieved component tab
+     * @param component      chosen component
+     * @return               retrieved component tab with all children
      */
     private Optional<Tab> getTabForComponent(Component component) {
         return menu.getChildren().filter(tab -> ComponentUtil.getData(tab, Class.class).equals(component.getClass()))

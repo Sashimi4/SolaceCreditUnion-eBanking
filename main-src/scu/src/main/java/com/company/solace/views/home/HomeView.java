@@ -28,7 +28,7 @@ public class HomeView extends Div {
         }
 
 
-    public Component createTitleText() {
+    private Component createTitleText() {
         VerticalLayout horizontalLayout = new VerticalLayout();
         H1 title = new H1("- Solace Credit Union -");
         horizontalLayout.add(title);
@@ -36,7 +36,7 @@ public class HomeView extends Div {
         return horizontalLayout;
     }
 
-    public Component createSubtitleText() {
+    private Component createSubtitleText() {
         VerticalLayout horizontalLayout = new VerticalLayout();
         horizontalLayout.add(new H3("For all your banking needs."));
         horizontalLayout.setAlignItems(FlexComponent.Alignment.CENTER);
